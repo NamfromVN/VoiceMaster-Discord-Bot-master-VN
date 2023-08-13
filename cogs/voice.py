@@ -121,7 +121,7 @@ class voice(commands.Cog):
                             c.execute ("INSERT INTO guild VALUES (?, ?, ?, ?)",(guildID,id,channel.id,new_cat.id))
                         else:
                             c.execute ("UPDATE guild SET guildID = ?, ownerID = ?, voiceChannelID = ?, voiceCategoryID = ? WHERE guildID = ?",(guildID,id,channel.id,new_cat.id, guildID))
-                        await ctx.channel.send("**Tất cả các bạn đã thiết lập và sẵn sàng để đi!**")
+                        await ctx.channel.send("**Thiết lập thành công :) !**")
                     except:
                         await ctx.channel.send("Bạn đã không nhập tên đúng cách.\nHãy sử dụng lệnh `.voice setup` lại một lần nữa!")
         else:
@@ -242,7 +242,7 @@ class voice(commands.Cog):
             channelID = voice[0]
             channel = self.bot.get_channel(channelID)
             await channel.edit(user_limit = limit)
-            await ctx.channel.send(f'{ctx.author.mention} Bạn đã đặt giới hạn kênh là'+ '{}!'.format(limit) )
+            await ctx.channel.send(f'{ctx.author.mention} Bạn đã đặt giới hạn kênh là '+ '{}!'.format(limit) )
             c.execute("SELECT channelName FROM userSettings WHERE userID = ?", (id,))
             voice=c.fetchone()
             if voice is None:
@@ -266,7 +266,7 @@ class voice(commands.Cog):
             channelID = voice[0]
             channel = self.bot.get_channel(channelID)
             await channel.edit(name = name)
-            await ctx.channel.send(f'{ctx.author.mention} Bạn đã thay đổi tên kênh thành'+ '{}!'.format(name) )
+            await ctx.channel.send(f'{ctx.author.mention} Bạn đã thay đổi tên kênh thành '+ '{}!'.format(name) )
             c.execute("SELECT channelName FROM userSettings WHERE userID = ?", (id,))
             voice=c.fetchone()
             if voice is None:
