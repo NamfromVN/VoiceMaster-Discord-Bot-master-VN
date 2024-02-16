@@ -3,9 +3,8 @@ from discord.ext import commands
 import traceback
 import sys
 
-intents = discord.Intents.default()
-#Message content intent needs to be enabled in the developer portal for your chosen bot.
-intents.message_content = True
+intents = discord.Intents.all()
+
 
 bot = commands.Bot(command_prefix=".", intents=intents)
 
